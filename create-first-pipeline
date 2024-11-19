@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    tools{
+        maven "maven3.9.9"
+    }
+    stages {
+        stage('stage1--preparing for build') {
+            steps {
+                echo 'preparing..'
+            }
+        }
+         stage('stage2--clone the project') {
+            steps {
+                git branch: 'main', url: 'https://github.com/gbhure/mvn-proj-31aug24.git'
+            }
+        }
+         stage('stage3--build the project') {
+            steps {
+                sh "pwd"
+                sh "ls"
+                sh "/opt/maven/bin/mvn install"
+            }
+        }
+         stage('stage5--copy the artefact to artefactory') {
+            steps {
+                echo 'copying artefacts'
+            }
+        }
+    }
+}
