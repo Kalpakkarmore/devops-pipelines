@@ -11,7 +11,7 @@ pipeline {
         }
          stage('stage2--clone the project') {
             steps {
-                git branch: 'main', url: 'https://github.com/gbhure/mvn-proj-31aug24.git'
+                git branch: 'main', credentialsId: 'e1a6f3f5-f3dd-4ed8-93c3-92f87dc60b74', url: 'https://github.com/Kalpakkarmore/devops-pipelines.git'
             }
         }
          stage('stage3--build the project') {
